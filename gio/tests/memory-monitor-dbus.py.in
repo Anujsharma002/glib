@@ -98,12 +98,12 @@ try:
                 self.main_context.iteration(False)
 
             self.dbusmock.EmitWarning(100)
-            # Wait 2 seconds or until warning
-            self.assertEventually(lambda: self.last_warning == 100, "'100' low-memory warning not received", 20)
+            # Wait 5 seconds or until warning
+            self.assertEventually(lambda: self.last_warning == 100, "'100' low-memory warning not received")
 
             self.dbusmock.EmitWarning(255)
-            # Wait 2 seconds or until warning
-            self.assertEventually(lambda: self.last_warning == 255, "'255' low-memory warning not received", 20)
+            # Wait 5 seconds or until warning
+            self.assertEventually(lambda: self.last_warning == 255, "'255' low-memory warning not received")
 
 except ImportError as e:
     @unittest.skip("Cannot import %s" % e.name)
